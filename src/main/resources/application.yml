@@ -1,0 +1,32 @@
+#项目端口、名称设置
+server:
+  port: 8080
+  servlet:
+    context-path: /mortgage
+
+#数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mortgage_lending?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: bmr123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      max-active: 20
+      max-idle: 8
+      min-idle: 8
+      initial-size: 10
+
+#thymeleaf模板引擎配置
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+
+# mybatis-plus配置
+mybatis-plus:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: top.baimingru.manager.pojo
+
