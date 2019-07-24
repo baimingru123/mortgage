@@ -1,5 +1,6 @@
 package taojinsimu.com.mortgage.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -12,8 +13,7 @@ import java.math.BigDecimal;
 @TableName("sf_lend_info")
 public class LendInfo {
 
-    @TableId
-    @Generated
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /** 发布人id.**/

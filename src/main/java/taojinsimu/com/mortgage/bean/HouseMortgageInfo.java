@@ -1,5 +1,6 @@
 package taojinsimu.com.mortgage.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -11,8 +12,7 @@ import java.math.BigDecimal;
 @Data
 @TableName("sf_house_mortgage_info")
 public class HouseMortgageInfo {
-    @TableId
-    @Generated
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /** 发布人id.**/
