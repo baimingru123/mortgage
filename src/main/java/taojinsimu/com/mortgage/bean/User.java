@@ -20,6 +20,11 @@ public class User {
     @TableField("password")
     private String password;
 
+    private String salt;
+
+    @TableField("token_id")
+    private String tokenId;
+
     @TableField("create_time")
     private String createTime;
 

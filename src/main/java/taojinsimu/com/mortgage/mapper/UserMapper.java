@@ -1,0 +1,11 @@
+package taojinsimu.com.mortgage.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import taojinsimu.com.mortgage.bean.User;
+
+public interface UserMapper extends BaseMapper<User> {
+
+    User getByUserName(String userName);
+
+    User getByUserNamePassword(User user);
+}

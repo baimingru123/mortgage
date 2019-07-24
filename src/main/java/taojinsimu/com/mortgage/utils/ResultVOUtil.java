@@ -1,7 +1,7 @@
 package taojinsimu.com.mortgage.utils;
 
 
-import taojinsimu.com.mortgage.enums.ResultEnums;
+import taojinsimu.com.mortgage.enums.ResultEnum;
 import taojinsimu.com.mortgage.vo.ResultVO;
 
 /**
@@ -30,7 +30,7 @@ public class ResultVOUtil {
         return resultVO;
     }
 
-    public static ResultVO returnEnums(ResultEnums enums){
+    public static ResultVO returnEnums(ResultEnum enums){
         ResultVO resultVO=new ResultVO();
         resultVO.setCode(enums.getCode());
         resultVO.setMsg(enums.getMsg());
