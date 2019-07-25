@@ -21,23 +21,23 @@ public class HouseMortgageInfo {
 
     /** 小区名**/
     @TableField("village_name")
-    private BigDecimal villageName;
+    private String villageName;
 
     /** 小区地址**/
     @TableField("village_address")
-    private Integer villageAddress;
+    private String villageAddress;
 
     /**小区照片**/
     @TableField("village_img_url")
-    private Integer villageImgUrl;
+    private String villageImgUrl;
 
     /**房屋内部照片**/
     @TableField("house_in_img_url")
-    private BigDecimal houseInImgUrl;
+    private String houseInImgUrl;
 
     /**房产证照片**/
     @TableField("certificate_house_img_url")
-    private BigDecimal certificateHouseImgUrl;
+    private String certificateHouseImgUrl;
 
     /**抵押价格  单位：万元**/
     @TableField("mortgage_price")
@@ -49,7 +49,7 @@ public class HouseMortgageInfo {
 
     /**状态  状态  1发布中  2已抵押 **/
     @TableField("status")
-    private BigDecimal status;
+    private Integer status;
 
     @TableField("create_time")
     private String createTime;
