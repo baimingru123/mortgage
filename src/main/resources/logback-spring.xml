@@ -22,7 +22,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--输出路径-->
-            <fileNamePattern>H:\log\mortgage\info.%d.log</fileNamePattern>
+            <fileNamePattern>${user.dir}/task-logs/info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -38,7 +38,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--输出路径-->
-            <fileNamePattern>H:\log\mortgage\error.%d.log</fileNamePattern>
+            <fileNamePattern>${user.dir}/task-logs/error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
