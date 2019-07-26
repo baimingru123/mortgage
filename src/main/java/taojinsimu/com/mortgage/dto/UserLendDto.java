@@ -24,6 +24,9 @@ public class UserLendDto {
     @TableField("lend_status")
     private Integer lendStatus;
 
+    @TableField("contact_name")
+    private String contactName;
+
     @TableField("contact_phone")
     private String contactPhone;
 

@@ -43,6 +43,10 @@ public class HouseMortgageInfo {
     @TableField("mortgage_price")
     private BigDecimal mortgagePrice;
 
+    /**联系人  **/
+    @TableField("contact_name")
+    private String contactName;
+
     /**联系方式  **/
     @TableField("contact_phone")
     private String contactPhone;

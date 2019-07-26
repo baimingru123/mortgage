@@ -52,13 +52,17 @@ public class LendInfo {
     @TableField("lend_total_count")
     private BigDecimal lendTotalCount;
 
+    /**联系人  **/
+    @TableField("contact_name")
+    private String contactName;
+
     /**联系方式  **/
     @TableField("contact_phone")
     private String contactPhone;
 
     /**状态  1发布中  2部分出借  3全部出借 **/
     @TableField("status")
-    private BigDecimal status;
+    private Integer status;
 
     @TableField("create_time")
     private String createTime;

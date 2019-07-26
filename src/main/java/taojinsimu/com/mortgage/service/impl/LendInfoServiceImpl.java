@@ -12,6 +12,7 @@ import taojinsimu.com.mortgage.exception.MortgagePageException;
 import taojinsimu.com.mortgage.form.LendInfoForm;
 import taojinsimu.com.mortgage.mapper.LendInfoMapper;
 import taojinsimu.com.mortgage.service.LendInfoService;
+import taojinsimu.com.mortgage.utils.DateUtils;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -37,6 +38,26 @@ public class LendInfoServiceImpl extends ServiceImpl<LendInfoMapper,LendInfo> im
         info.setLendTotalAmount(form.getLendAmount());
         info.setUserId(user.getId());
         info.setContactPhone(form.getContactPhone());
+        info.setContactName(form.getContactName());
+
+        boolean flag=this.save(info);
+        if(!flag)
+            throw new MortgagePageException("保存出借款信息失败");
+    }
+
+    @Override
+    public void editInfo(LendInfoForm form) {
+        int id=form.getId();
+        LendInfo info=this.getById(id);
+        if(info==null){
+            throw new MortgagePageException("出借款信息不存在");
+        }
+
+
+        info.setContactPhone(form.getContactPhone());
+        info.setContactName(form.getContactName());
+        info.setStatus(form.getStatus());
+        info.setUpdateTime(DateUtils.getCurrentTime());
 
         boolean flag=this.save(info);
         if(!flag)

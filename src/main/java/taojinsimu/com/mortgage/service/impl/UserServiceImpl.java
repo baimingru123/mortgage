@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import taojinsimu.com.mortgage.bean.User;
+import taojinsimu.com.mortgage.dto.UserLendHouseDto;
 import taojinsimu.com.mortgage.exception.MortgagePageException;
 import taojinsimu.com.mortgage.form.LoginForm;
 import taojinsimu.com.mortgage.mapper.UserMapper;
@@ -11,10 +12,16 @@ import taojinsimu.com.mortgage.service.UserService;
 import taojinsimu.com.mortgage.utils.MD5Util;
 import taojinsimu.com.mortgage.utils.SaltUtil;
 
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private HttpSession session;
 
     @Override
     public User checkUserNameExist(String userName) {
@@ -65,5 +72,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
             throw new MortgagePageException("用户名密码不正确");
         }
         return userLogin;
+    }
+
+    @Override
+    public List<UserLendHouseDto> getLendHouseList() {
+        User user=(User)session.getAttribute("user");
+
+        return userMapper.getLendHouseList(user.getId());
     }
 }

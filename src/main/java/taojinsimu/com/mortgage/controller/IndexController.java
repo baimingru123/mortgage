@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import taojinsimu.com.mortgage.service.HouseInfoService;
 import taojinsimu.com.mortgage.service.LendInfoService;
 
+import java.util.List;
+
 /**
  * @author bmr
  * @time 2019-07-25 21:00
@@ -29,8 +31,15 @@ public class IndexController  {
      * 获取所有用户发布的房屋抵押信息和放贷信息
      * @return
      */
-//    @GetMapping("/index")
-//    public ModelAndView index(){
-//
-//    }
+    @GetMapping("/index")
+    public ModelAndView index(){
+        ModelAndView mv=new ModelAndView("index");
+
+        List userLendList=lendInfoService.findUserLendInfoList();
+        List userHouseList=houseInfoService.findUserHouseInfoList();
+        mv.addObject("userLendList",userLendList);
+        mv.addObject("userHouseList",userHouseList);
+        return mv;
+
+    }
 }

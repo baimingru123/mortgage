@@ -30,6 +30,10 @@ public class HouseInfoForm {
     @DecimalMin(value = "0",message = "抵押金额不能小于0")
     private BigDecimal mortgagePrice;
 
+    /**联系人  **/
+    @NotEmpty(message = "联系人不能为空")
+    private String contactName;
+
     /**联系方式  **/
     @NotEmpty(message = "联系方式不能为空")
     private String contactPhone;

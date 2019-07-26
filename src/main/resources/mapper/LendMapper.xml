@@ -12,7 +12,8 @@
     </select>
 
     <select id="getUserLendList" parameterType="taojinsimu.com.mortgage.condition.LendCondition" resultType="taojinsimu.com.mortgage.dto.UserLendDto">
-        select lend.id as lend_id,lend.lend_total_amount as lend_amount,lend.status as lend_status,lend.create_time as lend_create_time,lend.contact_phone,
+        select lend.id as lend_id,lend.lend_total_amount as lend_amount,lend.status as lend_status,
+            lend.create_time as lend_create_time,lend.contact_phone,lend.contact_name
             user.id as user_id,user.user_name
         from sf_lend_info lend left join sf_user user on user.id=lend.user_id
         where lend.status in

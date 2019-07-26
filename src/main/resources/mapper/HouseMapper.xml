@@ -12,8 +12,8 @@
     </select>
 
     <select id="getUserHouseList" parameterType="taojinsimu.com.mortgage.condition.HouseCondition" resultType="taojinsimu.com.mortgage.dto.UserHouseDto">
-        select info.id as house_info_id,info.mortgage_price as mortgage_price,info.village_name,info.village_address,
-            info.certificate_house_img_url,info.status as house_status,info.create_time as house_create_time,info.contact_phone,
+        select info.id as house_info_id,info.mortgage_price as mortgage_price,info.village_name,info.village_address,info.certificate_house_img_url,
+            info.status as house_status,info.create_time as house_create_time,info.contact_phone,info.contact_name,
             user.id as user_id,user.user_name
         from sf_house_mortgage_info info left join sf_user user on user.id=info.user_id
         where info.status =#{houseStatus}

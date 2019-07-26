@@ -31,5 +31,18 @@
         where user.id=#{userId};
     </select>
 
+    <select id="getLendHouseList" parameterType="int" resultType="taojinsimu.com.mortgage.dto.UserLendHouseDto">
+        select user.id as user_id,user.user_name,
+            lend.id as lend_id,lend.lend_total_amount as lend_amount,lend.status as lend_status,lend.create_time as lend_create_time,
+            lend.contact_phone as lend_contact_phone,lend.contact_name as lend_contact_name,
+            house.id as house_id,house.mortgage_price as mortgage_price,house.village_name,house.village_address,house.certificate_house_img_url,
+            house.status as house_status,house.create_time as house_create_time,house.contact_phone as house_contact_phone,
+            house.contact_name as house_contact_name
+
+        from sf_user user left join sf_lend_info lend on user.id=lend.user_id
+            left join sf_house_mortgage_info house on user.id=house.user_id
+        where user.id=#{userId};
+    </select>
+
 
 </mapper>

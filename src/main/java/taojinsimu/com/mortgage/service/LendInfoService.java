@@ -21,6 +21,12 @@ public interface LendInfoService extends IService<LendInfo> {
     void addInfo(LendInfoForm form);
 
     /**
+     * 编辑出借款信息
+     * @param form
+     */
+    void editInfo(LendInfoForm form);
+
+    /**
      * 获取某用户下发布的出借款信息列表
      * @param userId
      * @return
