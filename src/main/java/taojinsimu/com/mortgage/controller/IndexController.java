@@ -31,8 +31,9 @@ public class IndexController  {
      * 获取所有用户发布的房屋抵押信息和放贷信息
      * @return
      */
-    @GetMapping("/index")
+    @GetMapping({"/", "/index"})
     public ModelAndView index(){
+        System.out.println("进入到主页了");
         ModelAndView mv=new ModelAndView("index");
 
         List userLendList=lendInfoService.findUserLendInfoList();

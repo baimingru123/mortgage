@@ -3,6 +3,7 @@ package taojinsimu.com.mortgage.handler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+import taojinsimu.com.mortgage.enums.SelfExceptionType;
 import taojinsimu.com.mortgage.exception.MortgagePageException;
 
 /**
@@ -13,7 +14,8 @@ public class MortgageExceptionHandler {
 
     @ExceptionHandler(value = MortgagePageException.class)
     public ModelAndView handlerPageException(MortgagePageException e){
-        ModelAndView mv=new ModelAndView("common/error");
+       String viewName=e.getExceptionType().getReturnUrl();
+        ModelAndView mv=new ModelAndView(viewName);
         mv.addObject("message",e.getMessage());
         return mv;
     }

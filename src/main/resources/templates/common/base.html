@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:with='basePath=${#httpServletRequest.getScheme()+"://"+#httpServletRequest.getServerName()+":"+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()+"/"}'>
+<head th:fragment="head">
+    <base th:href="${basePath}"/>
+    <meta value="UTF-8"/>
+
+    <div th:fragment="common_js_css">
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/modules/layui/layui.js}"></script>
+        <link rel="stylesheet" th:href="@{/modules/layui/css/layui.css}">
+    </div>
+
+
+    <script th:inline="javascript">
+        var basepPath = [[${basePath}]];
+    </script>
+</head>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>抵押平台</title>
+    <!--引入公共js和css-->
+    <span th:replace="/common/base :: common_js_css"></span>
+</head>
+
+
+<body>
+
+
+
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">房产抵押信息</li>
+            <li>出借款信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead class="layui-table-header">
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="layui-table-body">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="layui-tab-item">
+                内容2
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    layui.use(['element'],function () {
+        var element=layui.element;
+    });
+</script>
+</html>
