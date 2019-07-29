@@ -16,7 +16,7 @@ import java.util.List;
  * @time 2019-07-25 21:00
  */
 @Controller
-@RequestMapping("/index")
+@RequestMapping({"/","/index"})
 @Slf4j
 public class IndexController  {
 
@@ -31,7 +31,7 @@ public class IndexController  {
      * 获取所有用户发布的房屋抵押信息和放贷信息
      * @return
      */
-    @GetMapping({"/", "/index"})
+    @GetMapping({"", "/index"})
     public ModelAndView index(){
         System.out.println("进入到主页了");
         ModelAndView mv=new ModelAndView("index");

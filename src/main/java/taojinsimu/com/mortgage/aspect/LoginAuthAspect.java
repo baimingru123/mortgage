@@ -27,13 +27,17 @@ import javax.servlet.http.HttpSession;
 public class LoginAuthAspect {
 
 
-    @Pointcut("execution(public * taojinsimu.com.mortgage.controller.*.*(..))"+"&& !execution(public * taojinsimu.com.mortgage.controller.LoginController.*(..))")
+    @Pointcut("execution(public * taojinsimu.com.mortgage.controller.*.*(..))"+
+            "&& !execution(public * taojinsimu.com.mortgage.controller.LoginController.*(..))"+
+            "&& !execution(public * taojinsimu.com.mortgage.controller.IndexController.*(..))")
     public void verify(){ }
 
     @Before("verify()")
     public void doVerify(){
+
         ServletRequestAttributes attributes= (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request=attributes.getRequest();
+        System.out.println("拦截到请求:"+request.getRequestURI());
         HttpSession session=request.getSession();
         User loginUser=(User)session.getAttribute("user");
 
