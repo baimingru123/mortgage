@@ -1,5 +1,6 @@
 package taojinsimu.com.mortgage.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,5 +80,18 @@ public class LendInfoServiceImpl extends ServiceImpl<LendInfoMapper,LendInfo> im
         condition.setLendStatusList(statusList);
 
         return  mapper.getUserLendList(condition);
+    }
+
+
+    @Override
+    public List<UserLendDto> findUserLendInfoList(Page<UserLendDto> page) {
+        //组装查询条件
+        LendCondition condition=new LendCondition();
+        List statusList=new ArrayList();
+        statusList.add(LendStatusEnum.IN_RELEASE.getCode());
+        statusList.add(LendStatusEnum.PARTIAL_LENDING.getCode());
+        condition.setLendStatusList(statusList);
+
+        return  mapper.getUserLendList(condition,page);
     }
 }

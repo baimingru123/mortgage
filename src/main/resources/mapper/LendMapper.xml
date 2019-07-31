@@ -17,7 +17,7 @@
             user.id as user_id,user.user_name
         from sf_lend_info lend left join sf_user user on user.id=lend.user_id
         where lend.status in
-        <foreach collection="lendStatusList" item="status" index="index" open="(" close=")" separator=",">
+        <foreach collection="condition.lendStatusList" item="status" index="index" open="(" close=")" separator=",">
             #{status}
         </foreach>
 

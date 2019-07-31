@@ -1,5 +1,6 @@
 package taojinsimu.com.mortgage.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,15 @@ public class HouseInfoServiceImpl extends ServiceImpl<HouseMortgageInfoMapper,Ho
     public List<UserHouseDto> findUserHouseInfoList() {
         //组装查询条件
         HouseCondition condition=new HouseCondition();
-        condition.setHouseStatus(HouseStatusEnum.ALREADY_MORTGAGED.getCode());
+        condition.setHouseStatus(HouseStatusEnum.IN_RELEASE.getCode());
         return  mapper.getUserHouseList(condition);
+    }
+
+    @Override
+    public List<UserHouseDto> findUserHouseInfoList(Page<UserHouseDto> page) {
+        //组装查询条件
+        HouseCondition condition=new HouseCondition();
+        condition.setHouseStatus(HouseStatusEnum.IN_RELEASE.getCode());
+        return  mapper.getUserHouseList(condition,page);
     }
 }

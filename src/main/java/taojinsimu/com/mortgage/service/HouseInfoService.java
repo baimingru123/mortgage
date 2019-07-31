@@ -1,5 +1,6 @@
 package taojinsimu.com.mortgage.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import taojinsimu.com.mortgage.bean.HouseMortgageInfo;
 import taojinsimu.com.mortgage.bean.LendInfo;
@@ -34,4 +35,10 @@ public interface HouseInfoService extends IService<HouseMortgageInfo> {
      * @return
      */
     List<UserHouseDto> findUserHouseInfoList();
+
+    /**
+     * 获取所有用户发布的发布中状态的房屋抵押信息列表 分页
+     * @return
+     */
+    List<UserHouseDto> findUserHouseInfoList(Page<UserHouseDto> page);
 }

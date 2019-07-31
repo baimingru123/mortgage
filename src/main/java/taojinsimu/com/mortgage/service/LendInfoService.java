@@ -1,6 +1,7 @@
 package taojinsimu.com.mortgage.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import taojinsimu.com.mortgage.bean.LendInfo;
 import taojinsimu.com.mortgage.dto.UserLendDto;
@@ -39,4 +40,10 @@ public interface LendInfoService extends IService<LendInfo> {
      * @return
      */
     List<UserLendDto> findUserLendInfoList();
+
+    /**
+     * 获取所有用户发布的发布中状态的出借款信息列表 分页
+     * @return
+     */
+    List<UserLendDto> findUserLendInfoList(Page<UserLendDto> page);
 }
